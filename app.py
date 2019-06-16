@@ -13,57 +13,76 @@ root.setLevel(logging.DEBUG)
 ch = logging.StreamHandler(sys.stdout)
 ch.setLevel(logging.DEBUG)
 formatter = logging.Formatter(
-    '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+  '%(asctime)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
 root.addHandler(ch)
 
 
 def return_dict():
-    #Dictionary to store music file information
-    dict_here = [
-        {'id': 1, 'name': 'Acoustic Breeze', 'link': 'music/acousticbreeze.mp3', 'genre': 'General', 'chill out': 5},
-        {'id': 2, 'name': 'Happy Rock','link': 'music/happyrock.mp3', 'genre': 'Bollywood', 'rating': 4},
-        {'id': 3, 'name': 'Ukulele', 'link': 'music/ukulele.mp3', 'genre': 'Bollywood', 'rating': 4}
-        ]
-    return dict_here
+  #Dictionary to store music file information
+  dict_here = [
+    {'id': 1, 'name': 'All of Me', 'link': 'songs/all_of_me.mp3', 'artist': 'John Legend', 'cover': 'Lindsey Stirling'},
+    {'id': 2, 'name': 'Brown Eyes', 'link': 'songs/brown_eyes.mp3', 'artist': 'Destiny\'s Child'},
+    {'id': 3, 'name': 'Burn', 'link': 'songs/burn.mp3', 'artist': 'Usher'},
+    {'id': 4, 'name': 'Home', 'link': 'songs/home.mp3', 'artist': 'Michael Bublé'},
+    {'id': 5, 'name': 'How Will I Know','link': 'songs/how_will_i_know.mp3', 'artist': 'Whitney Houston', 'cover': 'Sam Smith'},
+    {'id': 6, 'name': 'How You Gonna Act Like That','link': 'songs/how_you_gonna_act.mp3', 'artist': 'Tyrese'},
+    {'id': 7, 'name': 'I Wanna Know', 'link': 'songs/i_wanna_know.mp3', 'artist': 'Joe'},
+    {'id': 8, 'name': 'Make You Feel My Love', 'link': 'songs/make_you_feel_my_love.mp3', 'artist': 'Adele'},
+    {'id': 9, 'name': 'Photograph', 'link': 'songs/photograph.mp3', 'artist': 'Ed Sheeran', 'cover': 'Brooklyn'},
+    {'id': 10, 'name': 'Reason', 'link': 'songs/reason.mp3', 'artist': 'Calum Scott', 'cover': 'Leona Lewis'},
+    {'id': 11, 'name': 'Too Good at Goodbyes', 'link': 'songs/too_good.mp3', 'artist': 'Sam Smith'}
+    ]
+  return dict_here
 
 # Initialize Flask.
 app = Flask(__name__)
 
-
-#Route to render GUI
 @app.route('/')
 def show_entries():
-    general_Data = {
-        'title': 'Music Player'}
-    print(return_dict())
-    stream_entries = return_dict()
-    return render_template('simple.html', entries=stream_entries, **general_Data)
+  stream_entries = return_dict()
+  return render_template('index.html', entries=stream_entries)
+
+#Route to render GUI
+@app.route('/play')
+def load_homepage():
+  general_Data = { 'title': 'Play'}
+  # print(return_dict())
+  stream_entries = return_dict()
+  return render_template('play.html', entries=stream_entries, **general_Data)
 
 #Route to stream music
 @app.route('/<int:stream_id>')
 def streammp3(stream_id):
-    def generate():
-        data = return_dict()
-        count = 1
-        for item in data:
-            if item['id'] == stream_id:
-                song = item['link']
-        with open(song, "rb") as fwav:
-            data = fwav.read(1024)
-            while data:
-                yield data
-                data = fwav.read(1024)
-                logging.debug('Music data fragment : ' + str(count))
-                count += 1
-                
-    return Response(generate(), mimetype="audio/mp3")
+  def generate():
+    data = return_dict()
+    count = 1
+    for item in data:
+      if item['id'] == stream_id:
+        song = item['link']
+    with open(song, "rb") as fwav:
+      data = fwav.read(1024)
+      while data:
+        yield data
+        data = fwav.read(1024)
+        # logging.debug('Music data fragment : ' + str(count))
+        count += 1
+
+  return Response(generate(), mimetype="audio/mp3")
 
 #launch a Tornado server with HTTPServer.
 if __name__ == "__main__":
-    port = 5000
-    http_server = HTTPServer(WSGIContainer(app))
-    logging.debug("Started Server, Kindly visit http://localhost:" + str(port))
-    http_server.listen(port)
-    IOLoop.instance().start()
-    
+  port = 8000
+  http_server = HTTPServer(WSGIContainer(app))
+  logging.debug("Server started at port:" + str(port))
+  http_server.listen(port)
+  IOLoop.instance().start()
+
+
+"""
+Forward and Next buttons on media player
+https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
+
+With database
+https://robertfilter.net/blog/webtech/flask-sqlite-jukebox-responsive-bootstrap-web-interface.html
+"""

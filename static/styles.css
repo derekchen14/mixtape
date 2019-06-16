@@ -1,0 +1,39 @@
+h1#main-title {
+  color: teal;
+  font-family: Tahoma, Cambria, serif;
+  font-weight: bold;
+  padding: 10px 0 0 20px;
+}
+
+img#mixtape {
+  width: 25%;
+  height: auto;
+}
+
+img#mixtape:hover{
+  cursor: grab;
+  cursor: move;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+img#mixtape:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+img#arrow{
+  margin: 0 1.4em;
+  width: 10%;
+  height: auto;
+}
+img.player{ width: 30%; height: auto; }
+
+p#instructions {
+  padding: 20px 0 0 50px;
+}
+
+.inline { display: inline-block; }
+.disappear {
+  opacity: 0.01;
+}
