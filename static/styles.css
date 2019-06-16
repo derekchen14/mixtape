@@ -37,3 +37,12 @@ p#instructions {
 .disappear {
   opacity: 0.01;
 }
+
+div#sl {
+  margin: 1em 1em;
+}
+div.well {
+  width: 50%;
+  height: auto;
+  display: none;
+}

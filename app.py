@@ -21,17 +21,17 @@ root.addHandler(ch)
 def return_dict():
   #Dictionary to store music file information
   dict_here = [
-    {'id': 1, 'name': 'All of Me', 'link': 'songs/all_of_me.mp3', 'artist': 'John Legend', 'cover': 'Lindsey Stirling'},
-    {'id': 2, 'name': 'Brown Eyes', 'link': 'songs/brown_eyes.mp3', 'artist': 'Destiny\'s Child'},
-    {'id': 3, 'name': 'Burn', 'link': 'songs/burn.mp3', 'artist': 'Usher'},
-    {'id': 4, 'name': 'Home', 'link': 'songs/home.mp3', 'artist': 'Michael Bublé'},
-    {'id': 5, 'name': 'How Will I Know','link': 'songs/how_will_i_know.mp3', 'artist': 'Whitney Houston', 'cover': 'Sam Smith'},
-    {'id': 6, 'name': 'How You Gonna Act Like That','link': 'songs/how_you_gonna_act.mp3', 'artist': 'Tyrese'},
-    {'id': 7, 'name': 'I Wanna Know', 'link': 'songs/i_wanna_know.mp3', 'artist': 'Joe'},
-    {'id': 8, 'name': 'Make You Feel My Love', 'link': 'songs/make_you_feel_my_love.mp3', 'artist': 'Adele'},
-    {'id': 9, 'name': 'Photograph', 'link': 'songs/photograph.mp3', 'artist': 'Ed Sheeran', 'cover': 'Brooklyn'},
-    {'id': 10, 'name': 'Reason', 'link': 'songs/reason.mp3', 'artist': 'Calum Scott', 'cover': 'Leona Lewis'},
-    {'id': 11, 'name': 'Too Good at Goodbyes', 'link': 'songs/too_good.mp3', 'artist': 'Sam Smith'}
+    {'id': 0, 'name': 'All of Me', 'link': 'songs/all_of_me.mp3', 'artist': 'John Legend', 'cover': 'Lindsey Stirling'},
+    {'id': 1, 'name': 'Brown Eyes', 'link': 'songs/brown_eyes.mp3', 'artist': 'Destiny\'s Child'},
+    {'id': 2, 'name': 'Burn', 'link': 'songs/burn.mp3', 'artist': 'Usher'},
+    {'id': 3, 'name': 'Home', 'link': 'songs/home.mp3', 'artist': 'Michael Bublé'},
+    {'id': 4, 'name': 'How Will I Know','link': 'songs/how_will_i_know.mp3', 'artist': 'Whitney Houston', 'cover': 'Sam Smith'},
+    {'id': 5, 'name': 'How You Gonna Act Like That','link': 'songs/how_you_gonna_act.mp3', 'artist': 'Tyrese'},
+    {'id': 6, 'name': 'I Wanna Know', 'link': 'songs/i_wanna_know.mp3', 'artist': 'Joe'},
+    {'id': 7, 'name': 'Make You Feel My Love', 'link': 'songs/make_you_feel_my_love.mp3', 'artist': 'Adele'},
+    {'id': 8, 'name': 'Photograph', 'link': 'songs/photograph.mp3', 'artist': 'Ed Sheeran', 'cover': 'Brooklyn'},
+    {'id': 9, 'name': 'Reason', 'link': 'songs/reason.mp3', 'artist': 'Calum Scott', 'cover': 'Leona Lewis'},
+    {'id': 10, 'name': 'Too Good at Goodbyes', 'link': 'songs/too_good.mp3', 'artist': 'Sam Smith'}
     ]
   return dict_here
 
