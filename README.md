@@ -1,10 +1,6 @@
-# Simple Flask Music Streaming App 
+# Simple Music Streaming App
 
-A simple Flask app for streaming music
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+A basic Flask app for streaming music with drag and drop widgets to start the music
 
 ### Prerequisites
 
@@ -14,6 +10,8 @@ What things you need to install the software and how to install them
 Python 3
 Flask
 Tornado Web Server
+Jquery
+Bootstrap
 ```
 
 ### Installing
@@ -32,6 +30,6 @@ python app.py
 
 Open up your browser and visit
 ```
-http://localhost:5000
+http://localhost:8000
 
 ```
