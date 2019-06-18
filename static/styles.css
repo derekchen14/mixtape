@@ -42,7 +42,27 @@ div#sl {
   margin: 1em 1em;
 }
 div.well {
-  width: 50%;
-  height: auto;
   display: none;
+}
+
+div.row {
+  padding-left: 1em;
+}
+
+img.backward {
+  width: 42px;
+  height: 42px;
+  margin: 1em 1em 0 0;
+}
+img.forward {
+  width: 42px;
+  height: 42px;
+  margin: 1em 0 0 1em;
+}
+img.control:hover {
+  cursor: pointer;
+}
+div.controls {
+  display: flex;
+  justify-content: center;
 }

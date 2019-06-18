@@ -2,60 +2,61 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Simple interface for making an anniversary gift music player">
-    <meta name="author" content="Robert Filter">
-    <link rel="icon" href="">
-    <title>{{ title }}</title>
-    <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" type="text/css" >
+  <meta charset="utf-8">
+  <meta name="description" content="Simple interface for making an anniversary gift music player">
+  <meta name="author" content="Robert Filter">
+  <link rel="icon" href="">
+  <title>{{ title }}</title>
+  <!-- Bootstrap core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" type="text/css" >
 </head>
 
-<body>
-    <div class="container-fluid">
-        <h1 id="main-title">Playlist</h1>
 
-        <div id="sl">
-            {% for entry in entries %}
-            <div class="well id-{{entry.id}}">
-                <h3 class="song-name">{{ entry.name }}</h3>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div></div>
-                    </div>
-                    <div class="col-md-3">
-                        <div>Artist:
-                            <b>{{ entry.artist }}</b>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div>Covered By:
-                            <b>{{ entry.cover }}</b>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="pull-right">
-                            <audio controls>
-                                <source src="http://localhost:8000/{{ entry.id }}" type="audio/mp3">
-                            </audio>
-                        </div>
-                    </div>
-                </div>
+<body style="background-image: url('static/images/lotus.png');">
+  <div class="container-fluid">
+    <h1 id="main-title">Playlist</h1>
 
+    <div id="sl">
+      {% for entry in entries %}
+      <div class="well id-{{entry.id}} col-md-6">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="song-name">{{ entry.name }}</h3>
+            <div>
+              <p>Artist: <b>{{ entry.artist }}</b><br/>
+              {% if entry.cover != na %}
+              Covered By: <b>{{ entry.cover }}</b>
+              {% endif %}</p>
             </div>
-            {% else %}
-            <li>
-                <em>Unbelievable. No entries so far</em>
-                {% endfor %}
+          </div>
+
+          <div class="col-md-6">
+            <div class="pull-right">
+              <div class="controls">
+              <img src="static/images/backward.png" class="inline control backward">
+              <img src="static/images/forward.png" class="inline control forward">
+              </div>
+              <audio id="player-{{entry.id}}" class="radio" controls>
+                <source src="http://localhost:8000/{{ entry.id }}" type="audio/mp3">
+              </audio>
+            </div>
+          </div>
         </div>
+
+      </div>
+      {% else %}
+      <li>
+        <em>Unbelievable. No entries so far</em>
+        {% endfor %}
     </div>
 
-    </div>
+  </div>
+  </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="{{ url_for('static', filename='scripts/home.js') }}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='scripts/home.js') }}"></script>
 </body>
 
 </html>
