@@ -10,6 +10,7 @@
   <!-- Bootstrap core CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" type="text/css" >
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 
@@ -38,7 +39,7 @@
               <img src="static/images/forward.png" class="inline control forward">
               </div>
               <audio id="player-{{entry.id}}" class="radio" controls>
-                <source src="http://localhost:8000/{{ entry.id }}" type="audio/mp3">
+                <source src="static/songs/{{ entry.link }}" type="audio/mp3">
               </audio>
             </div>
           </div>

@@ -34,11 +34,6 @@ def get_data():
     {'id': 10, 'name': 'Too Good at Goodbyes', 'link': 'too_good.mp3', 'artist': 'Sam Smith', 'cover': 'n/a'}
     ]
 
-  for song in data_list:
-    original = song['link']
-    updated = 'static/songs/' + original
-    song['link'] = updated
-
   return data_list
 
 # Initialize Flask.
