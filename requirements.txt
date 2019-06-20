@@ -1,2 +1,4 @@
 Flask==1.0.3
+gunicorn==19.9.0
 tornado==5.0.2
+Werkzeug==0.14.1
