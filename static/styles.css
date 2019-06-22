@@ -29,7 +29,7 @@ img#arrow{
 }
 img.player{ width: 30%; height: auto; }
 
-p#instructions {
+p.instructions {
   padding: 20px 0 0 50px;
 }
 
@@ -65,4 +65,10 @@ img.control:hover {
 div.controls {
   display: flex;
   justify-content: center;
+}
+
+span#code{
+  font-weight: bold;
+  font-size: 1.4em;
+  color: #5AEC77;
 }

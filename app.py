@@ -51,6 +51,12 @@ def show_entries():
   stream_entries = get_data()
   return render_template('play.html', entries=stream_entries, **general_Data)
 
+#Route to render GUI
+@app.route('/gift')
+def redeem_giftcard():
+  general_Data = { 'title': 'Redeem'}
+  return render_template('gift.html')
+
 #Route to stream music
 @app.route('/<int:stream_id>')
 def streammp3(stream_id):
